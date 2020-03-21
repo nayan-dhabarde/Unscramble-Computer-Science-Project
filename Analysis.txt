@@ -1,0 +1,7 @@
+Task0.py - O(1)
+Task1.py - O(N square)
+Task2.py - O(N square)
+Task3.py - Part A: O(N + N)
+           Part B: O(N)
+Task4.py - O(N square * (3N))
+
