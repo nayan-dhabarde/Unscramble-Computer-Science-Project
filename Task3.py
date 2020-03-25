@@ -59,12 +59,9 @@ def getNumberPrefix(number):
     for character in number:
         if character == " ":
             hasSpace = True
-            return num
+            return num[:-1]
         else:
             num += character
-
-    if hasSpace:
-        return num
 
     return ""
 
@@ -79,19 +76,8 @@ def getCode(number):
         else:
             return "140"
 
-def doesNotContain(codes, codeToBeAdded):
-    for code in codes:
-        if code == codeToBeAdded:
-            return False
-    return True
-
-def addCode(code, codes):
-    if doesNotContain(codes, code):
-        codes.append(code)
-
-
 def printListOfCodes():
-    codes = []
+    codes = set()
 
     for record in calls:
         caller = record[0]
@@ -99,14 +85,13 @@ def printListOfCodes():
 
         if "(080)" in caller:
             code = getCode(receiver)
-            addCode(code, codes)
+            codes.add(code)
 
     print("The numbers called by people in Bangalore have codes:")
-    for code in codes:
+    codeList = list(codes)
+    codeList.sort()
+    for code in codeList:
         print(code)
-
-
-# printListOfCodes()
 
 
 def callIsBangaloreFixedLine(number):
@@ -138,4 +123,3 @@ def printPercentageOfCallsMadeFroAndToBangalore():
 
 printListOfCodes()
 printPercentageOfCallsMadeFroAndToBangalore()
-

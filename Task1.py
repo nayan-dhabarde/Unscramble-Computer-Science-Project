@@ -20,32 +20,18 @@ Print a message:
 """
 
 
-def alreadyAdded(item, different):
-    for single in different:
-        if single == item:
-            return True
-    return False
-
-
-def addNumberIfNotAdded(item, different):
-    if not alreadyAdded(item, different):
-        different.append(item)
-
-
 def getUniqueNumbersFrom(records, different):
     for record in records:
-        addNumberIfNotAdded(record[0], different)
-        addNumberIfNotAdded(record[1], different)
-
+        different.add(record[0])
+        different.add(record[1])
 
 def printCountOfUniqueTelephoneNumbers():
-    different = []
+    different = set()
 
     getUniqueNumbersFrom(texts, different)
     getUniqueNumbersFrom(calls, different)
 
     print("There are " + str(len(different)) + " different telephone numbers in the records.")
-
 
 
 printCountOfUniqueTelephoneNumbers()

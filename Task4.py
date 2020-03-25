@@ -49,6 +49,7 @@ def printNumbersWhichCouldBeTelemarketers():
     callers = callers.difference(textSenders)
 
     telemarketers = list(callers)
+
     print("These numbers could be telemarketers: ")
     telemarketers.sort()
     for number in telemarketers:

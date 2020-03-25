@@ -1,7 +1,41 @@
-Task0.py - O(1)
-Task1.py - O(N square)
-Task2.py - O(N square)
-Task3.py - Part A: O(N + N)
+//==================================================================================//
+
+Task0.py -  Big O(1)
+: As we are not iterating over the elements of input list, we are only accessing first and last element
+
+
+//=================================================================================//
+
+Task1.py - O(A + B)
+: The function named getUniqueNumbersFrom(array, destinationSet) is called twice, the function contains a for loop which iterates over the array passed as an argument.
+  One call to the getUniqueNumbersFrom(array, destinationSet) has a runtime of O(N)
+  There are two for loops executing one after another on two different arrays, i.e. texts of length A and calls of length B
+  So the total runtime can be denoted by O (A + B)
+
+//=================================================================================//
+
+Task2.py - O(A + B)
+: The function getNumberToDurationMap() iterates over array calls of length A. has runtime of O(A)
+  After that we iterate on the keys in map numberToDuration.keys() of length B, has runtime of O(B)
+  thus the total runtime is O(A + B)
+
+//=================================================================================//
+
+Task3.py - Part A: O(N)
            Part B: O(N)
-Task4.py - O(N square * (3N))
+1. Part A
+: First we iterate over all call records with length A has runtime of O(A)
+  Inside this loop we iterate over the number of length B has runtime O(B)
+  So total runtime is O(AB). I think the maximum that B could go is 6 depending as we always iterate till we get a ')'
+  or we get a space in number, so it would became O(6N), and constants can be dropped and runtime becomes O(N)
+
+2. Part B
+:  In function, printPercentageOfCallsMadeFroAndToBangalore() we are only iterating ones over input calls of length N
+   So runtime is O(N)
+
+//=================================================================================//
+
+Task4.py - O(A + B)
+: We iterate over array of text record of length A and then array of call record of length B.
+  I am not sure, If I need to add the runtime of set.difference method as well
 
