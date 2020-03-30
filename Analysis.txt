@@ -1,33 +1,42 @@
 //==================================================================================//
 
-Task0.py -  Big O(1)
-: As we are not iterating over the elements of input list, we are only accessing first and last element
+Task0.py - O(1)
+: We are not iterating over the elements of input list, we are only accessing first and last element by and index
+  Accessing an item with an index from list has a worst case time complexity, Big O(1)
 
 
 //=================================================================================//
 
-Task1.py - O(A + B)
-: The function named getUniqueNumbersFrom(array, destinationSet) is called twice, the function contains a for loop which iterates over the array passed as an argument.
-  One call to the getUniqueNumbersFrom(array, destinationSet) has a runtime of O(N)
-  There are two for loops executing one after another on two different arrays, i.e. texts of length A and calls of length B
-  So the total runtime can be denoted by O (A + B)
+Task1.py - O(N square)
+: There is one for loop in the method getUniqueNumbersFrom which has a time complexity of O(N) as we are iterating over the records of length N
+  For each element, we are performing add operation on the set twice each of which has a worst case time complexity of O (N). As we are doing this twice it is O(N + N)
+  We are accessing the records to be added in the set by index and thus the time complexity for accessing a record is O (1)
+  Hence the function getUniqueNumbersFrom has a time complexity of O(N(N + N)) = O(N square)
+  We are calling this function twice and hence the total time complexity = O(N square + N square) which is equal to O (N square) for simplicity.
+//=================================================================================//
+
+Task2.py - O(N square)
+: In the function getNumberToDurationMap() we are iterating over array calls of length N has a worst case time complexity of O (N)
+  Inside this loop we are calling add duration method which checks if there is an entry in the dictionary with a key which has a Worst case time complexity  O (N)
+  we are doing this twice inside the loop and hence it is O (N + N) which can be treated as O (N) for simplicity
+  thus overall time complexity for function getNumberDurationToMap() is O (N square)
+  After this we are iterating over the keys, the dictionary.keys() method creates a list and has time complexity O (N) and iterating over it has O(N)
+  Thus, the total is O (N square) + O (N + N)
+  For simplicity it is O (N square)
 
 //=================================================================================//
 
-Task2.py - O(A + B)
-: The function getNumberToDurationMap() iterates over array calls of length A. has runtime of O(A)
-  After that we iterate on the keys in map numberToDuration.keys() of length B, has runtime of O(B)
-  thus the total runtime is O(A + B)
-
-//=================================================================================//
-
-Task3.py - Part A: O(N)
+Task3.py - Part A: O(N square) + O(N log N) + O(2N)
            Part B: O(N)
 1. Part A
-: First we iterate over all call records with length A has runtime of O(A)
-  Inside this loop we iterate over the number of length B has runtime O(B)
-  So total runtime is O(AB). I think the maximum that B could go is 6 depending as we always iterate till we get a ')'
-  or we get a space in number, so it would became O(6N), and constants can be dropped and runtime becomes O(N)
+: First we iterate over all call records and thus the time complexity is O(N) where N is the length of the array of call records
+  Inside this loop we iterate over the number of length N has runtime O(N), because of the condition we iterate only once and not twice
+  So total time complexity for the function is O(N square)
+  After that we are using the add function from set which has a time complexity of O (N)
+  Converting this list to set cost O (N)
+  Later, we use the built in sort function which has time complexity of  O(NlogN)
+  Then iterate over this sorted list using a for loop and thus another O (N) is added
+  Total time complexity is O(N square) + O(N log N) + O(2N)
 
 2. Part B
 :  In function, printPercentageOfCallsMadeFroAndToBangalore() we are only iterating ones over input calls of length N
@@ -35,7 +44,16 @@ Task3.py - Part A: O(N)
 
 //=================================================================================//
 
-Task4.py - O(A + B)
-: We iterate over array of text record of length A and then array of call record of length B.
-  I am not sure, If I need to add the runtime of set.difference method as well
+Task4.py - O(5N) + O(N log N) + O(N square)
+: We iterate over array of text record of length n and hence the time complexity is O (N)
+  Inside this loop we are adding elements in the set which has a time complexity of O (N), we are doing this twice and hence the complexity is O(N + N)
+  the total time complexity in the first iteration is O(N square + N square) or O (N square)
+  We repeat the same process another time and hence the total time complexity is  O(N square + N square)
+  After this, we are using the difference method which has time complexity O(N), we are doing this 3 times and thus it is  O(3N)
+  Converting this set to list has a time complexity of O (N)
+  Sorting it has O(NlogN)
+  Iterating over the sorted list has O(N)
+  Thus total time complexity is O(5N) + O(N log N) + O(N square)
+
+
 

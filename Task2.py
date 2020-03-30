@@ -23,7 +23,7 @@ September 2016.".
 
 def addDuration(number, duration, numberToDuration):
 
-    if number in numberToDuration.keys():
+    if number in numberToDuration:
         numberToDuration[number] = numberToDuration[number] + duration
     else:
         numberToDuration[number] = duration
